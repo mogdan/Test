@@ -12,14 +12,14 @@ public class BinarySearch {
         int X0 = 0;// Batman Y
         int Hmax = 0;//H min SearchZone
         int Hmin = H - 1;//H max SearchZone
-        int Wmax = 0;//W min SearchZone
-        int Wmin = W - 1;//W max SearchZone
+        int Wmax = W-1 ;//W min SearchZone
+        int Wmin = 0;//W max SearchZone
         int c = 0; //counter
 
         System.out.println("Bomb : " + bombX + "," + bombY);
         System.out.println("Batman : " + X0 + "," + Y0);
 
-        while ((Y0 != bombY) && (X0 != bombX)) {
+        while (c<7) {
             System.out.println("********************compteur : " + c++);
             int Y = Y0;
             int X = X0;
@@ -29,39 +29,39 @@ public class BinarySearch {
             String dirYX = dirY + dirX;
             ArrayList<String> direction = new ArrayList<>(Arrays.asList(dirYX.split("")));
             for (String d : direction) {
-                if (dirY.equals("U")) {
+                if (d.equals("U")) {
                     if (Hmin - Y0 > 2) {
                         Y0 = Y0 + (Hmin - Y0) / 2;
                     } else {
                         Y0++;
                     }
-                    Hmin = Y0;
+                    Hmax = Y0;
 
                 }
-                if (dirY.equals("D")) {
+                if (d.equals("D")) {
                     if (Y0 - Hmax > 2) {
                         Y0 = Y0 - (Y0 - Hmax) / 2;
                     } else {
                         Y0--;
                     }
-                    Hmax = Y0;
+                    Hmin = Y0;
                 }
-                if (dirY.equals("R")) {
-                    if (Wmin - X0 > 2) {
-                        X0 = X0 + (Wmin - X0) / 2;
+                if (d.equals("R")) {
+                    if (Wmax - X0 > 2) {
+                        X0 = X0 + (Wmax - X0) / 2;
                     } else {
                         X0++;
                     }
-                    Wmax = X0;
+                    Wmin = X0;
 
                 }
-                if (dirY.equals("L")) {
-                    if (X0 - Wmax > 2) {
-                        X0 = X0 - (X0 - Wmax) / 2;
+                if (d.equals("L")) {
+                    if (X0 - Wmin > 2) {
+                        X0 = X0 - (X0 - Wmin) / 2;
                     } else {
                         X0--;
                     }
-                    Wmin = X0;
+                    Wmax = X0;
                 }
 
             }
