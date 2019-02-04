@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class ChuckNorris {
 
     public static void main(String[] args) {
@@ -10,7 +13,13 @@ public class ChuckNorris {
             convert = convert+Integer.toBinaryString(a);
         }
 
-        System.out.println(convert);
+        ArrayList<String> toConvert = new ArrayList< >(Arrays.asList(convert.split("")));
+        for (String c : toConvert){
+
+        }
+
+        System.out.println(toConvert);
+
 
     }
 
