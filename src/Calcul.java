@@ -4,6 +4,7 @@ public class Calcul {
 
     public static void main(String[] args) {
         int result = 0;
+        boolean error;
 
         //JDD
         int maxSpeed = 90, lightCount = 7;
@@ -42,21 +43,33 @@ public class Calcul {
 
         //Main loop
         System.out.println("*************** Start the loop *************");
-        for (int i = maxSpeed; i >= 0; i--) {
-            for (int c = 0; c < lightCount; c++) {
-                System.out.println("Lightcount : "+c);
-                if ((lightDistances.get(c) * 3.6 * lightDurations.get(c) / i) % 2 != 0) {
-                    System.out.println("Passage feu 1 : OK");
-                    if (c == lightCount - 1) {
-                        System.out.println(i);
+
+        boolean win = false;
+        while (win != true) for (int i = maxSpeed; i >= 0; i--) {
+            error = false;
+            while (win != true) {
+                while (!error) {
+                    for (int c = 0; c < lightCount; c++) {
+                        System.out.println("*********************** Start iteration for i : "+i);
+                        System.out.println("Lightcount : " + c);
+                        if ((lightDistances.get(c) * 3.6 / (lightDurations.get(c) * i)) % 2 == 0) {
+                            System.out.println("Passage feu 1 : OK");
+                            System.out.println("c: " + c + " - temps: " + (lightDistances.get(c) * 3.6 / (lightDurations.get(c) * i)) + " - période: " + lightDurations.get(c));
+                            if (c == lightCount - 1) {
+                                System.out.println("Bonne vitesse : " + i);
+                                win = true;
+                            }
+                        } else {
+                            System.out.println("Passage feu 1 : KO");
+                            System.out.println((lightDistances.get(c) * 3.6 / (lightDurations.get(c) * i)));
+                            System.out.println("c: " + c + " - temps: " + (lightDistances.get(c) * 3.6 / (lightDurations.get(c) * i)) + " - période: " + lightDurations.get(c));
+                            error = true;
+
+                        }
                     }
-                }
-                else {
-                    System.out.println("Passage feu 1 : KO");
+
                 }
             }
-
-
         }
     }
 }
