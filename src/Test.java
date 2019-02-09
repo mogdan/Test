@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class Test {
-    public static void main(String[] args) {
+/*    public static void main(String[] args) {
         int bombX = 2;
         int X0 = 7;
         System.out.println("Bomb X : "+bombX);
@@ -12,14 +12,14 @@ public class Test {
             listeX.add(i);
         }
         System.out.println(listeX);
-/*        System.out.println(listeX.get(0));
+*//*        System.out.println(listeX.get(0));
         System.out.println(listeX.get(1));
         System.out.println(listeX.get(2));
         System.out.println(listeX.get(3));
         System.out.println(listeX.get(4));
         System.out.println(listeX.get(5));
         System.out.println(listeX.get(6));
-        System.out.println(listeX.get(7));*/
+        System.out.println(listeX.get(7));*//*
 
         String dirX = (X0 != bombX) ? (X0 < bombX) ? "R" : "L" : "";
         System.out.println(dirX);
@@ -48,6 +48,12 @@ public class Test {
             }
         }
 
+    }*/
 
+    public static void main(String[] args) {
+        int a = 5;
+        int b = 6;
+        double c = (double) a/b;
+        System.out.println(c);
     }
 }
